@@ -3,6 +3,7 @@
 use App\Http\Controllers\MongoTest;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+use Laravel\Socialite\Facades\Socialite;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,12 +16,37 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
 Route::get('/', function () {
-    return view('home');
+    return view('index');
 });
 
-Route::get('/register', [UserController::class, 'register']);
+Route::get('/register', function () {
+    return view('signup');
+})->middleware('guest');
+
+Route::get('/login', function () {
+    return view('login');
+})->middleware('guest');
+
+Route::get('/home', function () {
+    return view('home');
+})->middleware('Authorized');
+
+Route::get('/search', function () {
+    return view('index');
+});
+
+Route::get('/favorites', function () {
+    return view('index');
+})->middleware('Authorized');
+
+Route::get('/auth/redirect', function () {
+    return Socialite::driver('github')->redirect();
+});
+
+Route::get('/auth/callback', [UserController::class, 'registerOrLoginGithub']);
+
+Route::get('/logout', [UserController::class, 'logout']);
 
 Route::post('/register', [UserController::class, 'register']);
 

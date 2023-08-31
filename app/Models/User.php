@@ -14,11 +14,14 @@ class User extends Authenticable
     protected $database = 'proyecto';
     protected $collection = 'Users';
     protected $fillable = [
+        'github_id',
         'name',
         'email',
         'password',
-        'favorite_teams'
+        'token',
+        'favorite_pokemon'
     ];
+
     use HasFactory;
 
 }
