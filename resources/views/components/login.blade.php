@@ -2,11 +2,11 @@
     <div class="max-w-5xl mx-auto">
         <div class="flex flex-col items-center md:flex-row">
             <div class="w-full space-y-5 md:w-3/5 md:pr-16">
-                <p class="font-medium text-blue-500 uppercase" data-primary="blue-500">Building Businesses</p>
+                <p class="font-medium text-blue-500 uppercase" data-primary="blue-500">Catch em' all</p>
                 <h2 class="text-2xl font-extrabold leading-none text-black sm:text-3xl md:text-5xl">
-                    Changing The Way People Do Business.
+                    New to Pokémon? Get Started!
                 </h2>
-                <p class="text-xl text-gray-600 md:pr-16">Learn how to engage with your visitors and teach them about your mission. We're revolutionizing the way customers and businesses interact.</p>
+                <p class="text-xl text-gray-600 md:pr-16">Join us and embark on an exciting adventure. Create your account today and begin your quest to fill up your Pokédex!</p>
             </div>
 
             <div class="w-full mt-16 md:mt-0 md:w-2/5">

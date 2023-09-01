@@ -5,18 +5,11 @@
             <a href="/"
                 class="flex justify-start block text-left sm:text-center lg:text-left sm:justify-center lg:justify-start">
                 <span class="flex items-start sm:items-center">
-                    <svg class="w-auto h-6 text-gray-800 fill-current" viewBox="0 0 194 116"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <g fill-rule="evenodd">
-                            <path
-                                d="M96.869 0L30 116h104l-9.88-17.134H59.64l47.109-81.736zM0 116h19.831L77 17.135 67.088 0z">
-                            </path>
-                            <path d="M87 68.732l9.926 17.143 29.893-51.59L174.15 116H194L126.817 0z"></path>
-                        </g>
-                    </svg>
+                    <img class="w-auto h-12 text-indigo-600 fill-current" src="https://cdn-icons-png.flaticon.com/512/188/188987.png" alt="">      
+        
                 </span>
             </a>
-            <p class="mt-6 mr-4 text-base text-gray-500">Crafting the next-level of user experience and engagement.
+            <p class="mt-6 mr-4 text-base text-gray-500">Explore detailed regional Pokédex entries.
             </p>
         </div>
         <div class="block w-full pl-10 mt-6 text-sm lg:w-3/4 sm:flex lg:mt-0">
@@ -85,9 +78,5 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="pt-4 pt-6 mt-10 text-center text-gray-500 border-t border-gray-100">© 2020 Landmark. All rights
-        reserved.</div>
-
-        <div class="pt-2 pt-4 mt-2 text-center text-gray-600 border-t border-gray-100">Distributed By <a href="https://themewagon.com/">Themewagon</a></div>
+    </div>       
 </footer>
