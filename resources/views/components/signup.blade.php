@@ -18,23 +18,36 @@
                 <div class="flex flex-col items-start justify-start w-full h-full p-10 lg:p-16 xl:p-24">
                     <h4 class="w-full text-3xl font-bold">Signup</h4>
                     <p class="text-lg text-gray-500">or, if you have an account you can <a href="#_" class="text-blue-600 underline" data-primary="blue-600">sign in</a></p>
-                    <form action="/register" method="POST" class="relative w-full mt-10 space-y-8">
+                    <form action="/register" method="POST" class="relative w-full mt-10 space-y-8" onsubmit="return validateForm()">
                         @csrf
                         <div class="relative">
                             <label class="font-medium text-gray-900">Name</label>
-                            <input name="name" type="text" class="block w-full px-4 py-4 mt-2 text-xl placeholder-gray-400 bg-gray-200 rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-600 focus:ring-opacity-50" data-primary="blue-600" data-rounded="rounded-lg" placeholder="Enter Your Name">
+                            <input required name="name" type="text" class="block w-full px-4 py-4 mt-2 text-xl placeholder-gray-400 bg-gray-200 rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-600 focus:ring-opacity-50" data-primary="blue-600" data-rounded="rounded-lg" placeholder="Enter Your Name">
                         </div>
                         <div class="relative">
                             <label class="font-medium text-gray-900">Email</label>
-                            <input name="email" type="text" class="block w-full px-4 py-4 mt-2 text-xl placeholder-gray-400 bg-gray-200 rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-600 focus:ring-opacity-50" data-primary="blue-600" data-rounded="rounded-lg" placeholder="Enter Your Email Address">
+                            <input required name="email" type="email" class="block w-full px-4 py-4 mt-2 text-xl placeholder-gray-400 bg-gray-200 rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-600 focus:ring-opacity-50" data-primary="blue-600" data-rounded="rounded-lg" placeholder="Enter Your Email Address">
                         </div>
                         <div class="relative">
                             <label class="font-medium text-gray-900">Password</label>
-                            <input name="password" type="password" class="block w-full px-4 py-4 mt-2 text-xl placeholder-gray-400 bg-gray-200 rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-600 focus:ring-opacity-50" data-primary="blue-600" data-rounded="rounded-lg" placeholder="Password">
+                            <input required name="password" id="password" type="password" class="block w-full px-4 py-4 mt-2 text-xl placeholder-gray-400 bg-gray-200 rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-600 focus:ring-opacity-50" data-primary="blue-600" data-rounded="rounded-lg" placeholder="Password">
                         </div>
                         <div class="relative">
                             <label class="font-medium text-gray-900">Confirm Password</label>
-                            <input type="password" class="block w-full px-4 py-4 mt-2 text-xl placeholder-gray-400 bg-gray-200 rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-600 focus:ring-opacity-50" data-primary="blue-600" data-rounded="rounded-lg" placeholder="Password">
+                            <input required name="confirm_password" id="confirmPassword" type="password" class="block w-full px-4 py-4 mt-2 text-xl placeholder-gray-400 bg-gray-200 rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-600 focus:ring-opacity-50" data-primary="blue-600" data-rounded="rounded-lg" placeholder="Password">
+                            <div class="mt-3 text-red-600" id="error">
+                                @error('name')
+                                     <div class="text-red-500">{{ $message }}</div>
+                                @enderror
+
+                                @error('email')
+                                    <div class="text-red-500">{{ $message }}</div>
+                                @enderror
+
+                                @error('password')
+                                     <div class="text-red-500">{{ $message }}</div>
+                                @enderror
+                            </div>
                         </div>
                         <div class="relative">
                             <button class="inline-block w-full px-5 py-4 text-lg font-medium text-center text-white transition duration-200 bg-blue-600 rounded-lg hover:bg-blue-700 ease" data-primary="blue-600" data-rounded="rounded-lg">Create an account</button>

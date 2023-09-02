@@ -36,18 +36,18 @@ Route::get('/search', function () {
     return view('index');
 });
 
-Route::get('/favorites', function () {
-    return view('index');
-})->middleware('Authorized');
-
 Route::get('/auth/redirect', function () {
     return Socialite::driver('github')->redirect();
 });
 
 Route::get('/auth/callback', [UserController::class, 'registerOrLoginGithub']);
 
+Route::get('/getFavoritePokemons', [UserController::class, 'getFavoritePokemons'])->middleware('Authorized');;
+
 Route::get('/logout', [UserController::class, 'logout']);
 
 Route::post('/register', [UserController::class, 'register']);
 
 Route::post('/login', [UserController::class, 'login']);
+
+Route::post('addRemoveFavoritePokemon', [UserController::class, 'addRemoveFavoritePokemon']);

@@ -1,5 +1,13 @@
-<main>
-    <section class="nav">
+<script src="https://kit.fontawesome.com/f6dcf461c1.js" crossorigin="anonymous"></script>
+
+<main class="flex flex-col space-y-10">
+    <section>
+        @php
+            $user = Auth::user();
+            echo "<h1 class='text-xl'>Welcome back, $user->name!</h1>";
+        @endphp
+    </section>
+    <section>
         <ul class="nav-list">
             <li class="nav-item"><button class="btn btn-header" id="ver-todos">Ver todos</button></li> 
             <li class="nav-item"><button class="btn btn-header normal" id="normal">Normal</button></li>
@@ -22,29 +30,10 @@
             <li class="nav-item"><button class="btn btn-header fairy" id="fairy">Fairy</button></li>
         </ul>
     </section>
-    <div id="todos">
-        <div class="pokemon-todos" id="listaPokemon">
-            <!-- <div class="pokemon">
-                <p class="pokemon-id-back">#025</p>
-                <div class="pokemon-imagen">
-                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png" alt="Pikachu">
-                </div>
-                <div class="pokemon-info">
-                    <div class="nombre-contenedor">
-                        <p class="pokemon-id">#025</p>
-                        <h2 class="pokemon-nombre">Pikachu</h2>
-                    </div>
-                    <div class="pokemon-tipos">
-                        <p class="electric tipo">ELECTRIC</p>
-                        <p class="fighting tipo">FIGHTING</p>
-                    </div>
-                    <div class="pokemon-stats">
-                        <p class="stat">4m</p>
-                        <p class="stat">60kg</p>
-                    </div>
-                </div>
-            </div> -->
+    <section>
+        <div id="todos">
+            <div class="pokemon-todos" id="listaPokemon">
+            </div>
         </div>
-    </div>
-
+    </section>
 </main>
