@@ -6,6 +6,7 @@
             $user = Auth::user();
             echo "<h1 class='text-xl'>Welcome back, $user->name!</h1>";
         @endphp
+        <h2>Choose your beloved Pokémon companions and save them as your favorites. Dive into the nostalgia of the original 150 and embark on a journey to become the ultimate Pokémon Master. Explore their stats, types, and abilities, and relive the adventure that started it all.</h2>
     </section>
     <section>
         <ul class="nav-list">
@@ -33,7 +34,7 @@
     <section>
         <div id="todos">
             <div class="pokemon-todos" id="listaPokemon">
-            </div>
+           </div>
         </div>
     </section>
 </main>

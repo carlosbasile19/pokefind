@@ -1,32 +1,100 @@
-// Import any necessary libraries or modules if needed
+const listaPokemon = document.querySelector("#listaPokemon");
+const botonesHeader = document.querySelectorAll(".btn-header");
+let URL = "https://pokeapi.co/api/v2/pokemon/";
+var csrfToken = $('meta[name="csrf-token"]').attr('content');
+ 
+async function init() {
+    try {
+        const favoritePokemons = await getFavoritePokemon();
 
-// Ensure the DOM is ready before accessing elements
-document.addEventListener('DOMContentLoaded', () => {
-    const listaPokemon = document.getElementById('listaPokemon'); // Get the container element
+        console.log(favoritePokemons.favoritePokemons);
+        
+        // Create an array of promises for each fetch request
+        const fetchPromises = [];
 
-    // Select favorite buttons within the container
-    const favoriteButtons = listaPokemon.querySelectorAll('.favorite-button');
 
-    favoriteButtons.forEach((button) => {
-        button.addEventListener('click', async (event) => {
-            const pokemonNumber = event.target.getAttribute('data-pokemon-number');
-            alert(`You clicked the favorite button for Pokemon #${pokemonNumber}`);
+        favoritePokemons.favoritePokemons.forEach(pokemon => {
+            console.log(pokemon);
 
-            // Simulate adding/removing the Pokemon from favorites
-            // Replace this with your actual API call or logic
-            const isFavorite = button.classList.contains('text-red-500');
+            fetchPromises.push(
+                fetch(URL + parseInt(pokemon))
+                    .then((response) => response.json())
+            );
 
-            if (isFavorite) {
-                // Remove from favorites
-                button.classList.remove('text-red-500');
-                // TODO: Make an API call to remove from favorites
-                // Example: await removeFromFavorites(pokemonNumber);
-            } else {
-                // Add to favorites
-                button.classList.add('text-red-500');
-                // TODO: Make an API call to add to favorites
-                // Example: await addToFavorites(pokemonNumber);
-            }
         });
-    });
-});
+
+    
+        // Wait for all fetch requests to complete using Promise.all
+        const pokemonDataArray = await Promise.all(fetchPromises);
+
+        // Now, you have an array of Pokemon data in the correct order
+        pokemonDataArray.forEach(data => {
+            mostrarPokemon(data);
+        });
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+
+function  mostrarPokemon(poke) {
+
+        let tipos = poke.types.map((type) => `<p class="${type.type.name} tipo">${type.type.name}</p>`);
+        tipos = tipos.join('');
+
+        let pokeId = poke.id.toString();
+        if (pokeId.length === 1) {
+            pokeId = "00" + pokeId;
+        } else if (pokeId.length === 2) {
+            pokeId = "0" + pokeId;
+        }
+
+        const div = document.createElement("div");
+        div.classList.add("pokemon");
+        div.innerHTML = `
+            <p class="pokemon-id-back">#${pokeId}</p>
+            <div class="pokemon-imagen">
+                <img src="${poke.sprites.other["official-artwork"].front_default}" alt="${poke.name}">
+            </div>
+            <div class="pokemon-info">
+                <div class="nombre-contenedor">
+                    <p class="pokemon-id">#${pokeId}</p>
+                    <h2 class="pokemon-nombre">${poke.name}</h2>
+                </div>
+                <div class="pokemon-tipos">
+                    ${tipos}
+                </div>
+                <div class="pokemon-stats">
+                    <p class="stat">${poke.height}m</p>
+                    <p class="stat">${poke.weight}kg</p>
+                </div>
+            </div>
+        `;
+            listaPokemon.appendChild(div);
+
+    }
+
+     async function getFavoritePokemon() {
+        // Return the promise returned by $.ajax
+        return await $.ajax({
+            url: "/getFavoritePokemons",
+            method: "GET"
+        })
+        .then(function (response) {
+            // This function logs the response to the console
+            console.log(response);
+            // The promise returned by $.ajax still resolves with the response
+            return response;
+        })
+        .fail(function (error) {
+            // Handle any errors that occur during the AJAX request
+            console.error("Error fetching favorite Pokémon:", error);
+            throw error;
+        });
+    }
+
+    
+init();
+    
+    
+    
+    

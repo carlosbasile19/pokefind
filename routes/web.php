@@ -32,9 +32,13 @@ Route::get('/home', function () {
     return view('home');
 })->middleware('Authorized');
 
-Route::get('/search', function () {
-    return view('index');
-});
+Route::get('/randomPokemon', function () {
+    return view('randomPokemon');
+})->middleware('Authorized');
+
+Route::get('/favoritePokemons', function () {
+    return view('favoritePokemons');
+})->middleware('Authorized');
 
 Route::get('/auth/redirect', function () {
     return Socialite::driver('github')->redirect();
@@ -43,6 +47,8 @@ Route::get('/auth/redirect', function () {
 Route::get('/auth/callback', [UserController::class, 'registerOrLoginGithub']);
 
 Route::get('/getFavoritePokemons', [UserController::class, 'getFavoritePokemons'])->middleware('Authorized');;
+
+Route::get('getSingleFavoritePokemon/{pokemonNumber}', [UserController::class, 'getSingleFavoritePokemon'])->middleware('Authorized');;
 
 Route::get('/logout', [UserController::class, 'logout']);
 

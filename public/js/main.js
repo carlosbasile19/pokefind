@@ -31,7 +31,7 @@ async function init() {
     }
 }
 
-    function  mostrarPokemon(poke, favoritePokemons) {
+function  mostrarPokemon(poke, favoritePokemons) {
 
         let tipos = poke.types.map((type) => `<p class="${type.type.name} tipo">${type.type.name}</p>`);
         tipos = tipos.join('');
@@ -42,7 +42,6 @@ async function init() {
         } else if (pokeId.length === 2) {
             pokeId = "0" + pokeId;
         }
-
 
         const div = document.createElement("div");
         div.classList.add("pokemon");
@@ -71,7 +70,6 @@ async function init() {
             </div>
         `;
 
-            //Gets if the pokemon is in the favorites
             const isAlreadyFavorite = favoritePokemons.includes(pokeId);
 
             if (isAlreadyFavorite) {

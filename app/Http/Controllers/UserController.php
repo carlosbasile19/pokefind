@@ -47,7 +47,16 @@ class UserController extends Controller
 
     public function registerOrLoginGithub(){
 
-        $userGithub = Socialite::driver('github')->user();
+        try {
+            $userGithub = Socialite::driver('github')->user();
+        } catch (\Exception $e) {
+            // Log the error for debugging
+            \Log::error('GitHub Authentication Error: ' . $e->getMessage());
+        
+            // Handle the error or redirect as needed
+            // For debugging, you can also return a response with the error message
+        }
+        
 
         if($userGithub == null){
             return redirect('/register');
@@ -133,6 +142,18 @@ class UserController extends Controller
         
         $user = Auth::user();
         return response()->json(['favoritePokemons' => $user->favorite_pokemon]);
+
+    }
+
+    public function getSingleFavoritePokemon($pokemonNumber){
+            
+            $user = Auth::user();
+            $pokemonNumber = $user->where('favorite_pokemon', $pokemonNumber)->first();
+           
+            if($pokemonNumber == null){
+                return false;
+            }
+            return true;
     }
 
 }
