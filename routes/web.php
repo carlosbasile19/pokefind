@@ -18,7 +18,7 @@ use Laravel\Socialite\Facades\Socialite;
 
 Route::get('/', function () {
     return view('index');
-});
+})->middleware('guest');
 
 Route::get('/register', function () {
     return view('signup');

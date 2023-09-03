@@ -8,7 +8,7 @@
         <nav id="nav"
             class="absolute top-0 left-0 z-50 flex flex-col items-center justify-between hidden w-full h-32 pt-5 mt-24 text-sm text-gray-800 bg-white border-t border-gray-200 md:w-auto md:flex-row md:h-24 lg:text-base md:bg-transparent md:mt-0 md:border-none md:py-0 md:flex md:relative">
             <div class="flex flex-col block w-full font-medium border-t border-gray-200 md:hidden">
-                <a href="#_" class="w-full py-2 font-bold text-center text-pink-500">Favorite Pokemon</a>
+                <a href="#_" class="w-full py-2 font-bold text-center text-pink-500">Favorite Pokémon</a>
                 <a href="#_" class="w-full py-2 font-bold text-center text-pink-500">Catch em' all!</a>
                 <a href="/logout"
                     class="relative inline-block w-full px-5 py-3 text-sm leading-none text-center text-white bg-indigo-700 fold-bold">logout
@@ -17,7 +17,7 @@
 
             <div class="absolute left-0 flex-col items-center justify-center hidden w-full pb-8 mt-48 border-b border-gray-200 md:relative md:w-auto md:bg-transparent md:border-none md:mt-0 md:flex-row md:p-0 md:items-end md:flex md:justify-between">
                 <a href="/favoritePokemons"
-                    class="relative z-40 px-3 py-2 mr-0 text-sm font-bold text-pink-500 md:px-5 lg:text-red sm:mr-3 md:mt-0">Fav Pokemon</a>
+                    class="relative z-40 px-3 py-2 mr-0 text-sm font-bold text-pink-500 md:px-5 lg:text-red sm:mr-3 md:mt-0">Fav Pokémon</a>
                 <a href="/randomPokemon"
                     class="relative z-40 px-3 py-2 mr-0 text-sm font-bold text-pink-500 md:px-5 lg:text-red sm:mr-3 md:mt-0">Catch em all</a>
                 <form action="/logout" method="GET">

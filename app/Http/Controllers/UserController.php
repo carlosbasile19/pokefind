@@ -47,16 +47,8 @@ class UserController extends Controller
 
     public function registerOrLoginGithub(){
 
-        try {
-            $userGithub = Socialite::driver('github')->user();
-        } catch (\Exception $e) {
-            // Log the error for debugging
-            \Log::error('GitHub Authentication Error: ' . $e->getMessage());
-        
-            // Handle the error or redirect as needed
-            // For debugging, you can also return a response with the error message
-        }
-
+        $userGithub = Socialite::driver('github')->stateless()->user();
+       
         $user = User::where('email', $userGithub->email)->first();
 
         if($user){
@@ -88,15 +80,15 @@ class UserController extends Controller
             ]
         );
 
-        $incomingFields['password'] = Hash::make($incomingFields['password']);
-        
-        $user = User::where('email', $incomingFields['email'])->where('password', $incomingFields['password'])->first();
-        
-        if(!$user){
+        $user = User::where('email', $incomingFields['email'])->first();
+
+        if ($user && Hash::check($incomingFields['password'], $user->password)) {
+            Auth::login($user);
+            return redirect('/home');
+        } else {
             return redirect()->back()->withInput($request->only('email'))->withErrors(['email' => 'Invalid credentials']);
+     
         }
-        
-        return redirect('/home');
 
     }
 

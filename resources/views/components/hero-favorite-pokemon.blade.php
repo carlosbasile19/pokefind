@@ -11,11 +11,11 @@
     <section>
         <div id="todos">
             <div class="pokemon-todos" id="listaPokemon">
-                <div id="image-container" class="h-fi w-full grid place-items-center">
-                    <img src="https://archives.bulbagarden.net/media/upload/thumb/2/25/LGPE_Kanto_Map.png/1200px-LGPE_Kanto_Map.png" alt="Kanto Region">
-                </div>
+                
             </div>
-            
+            <div id="image-container" class="h-fi w-full grid place-items-center">
+                <img src="https://www.pokemon.com/static-assets/content-assets/cms2/img/video-games/_tiles/pokemon-go/12022020/pokemon-go-169.jpg" alt="Kanto Region">
+            </div>
         </div>
     </section>
 </main>

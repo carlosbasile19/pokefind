@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>PokeFind - Random</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.9.2/tailwind.min.css">
     <script defer type="text/javascript" src={{asset('js/mobile-menu.js')}}></script>
     <link rel="stylesheet" href="{{ asset('css/nav.css') }}">
@@ -21,7 +21,7 @@
     
         <div class="container mx-auto px-6 p-10">
             <h2 class="text-4xl font-bold text-center text-gray-800 mb-8">
-                Add to favorites a <button class="text-red-600" onClick="init()">random </button> pokemon!
+                Catch a  <button class="text-red-600" onClick="init()">random </button> Pokémon!
             </h2>
         </div>
     
@@ -32,7 +32,7 @@
                  <div class="pokemon">
                     <p id="pokemon-id-back" class="pokemon-id-back"></p>
                     <div class="pokemon-imagen">
-                        <img id="pokemon-art" alt="Pikachu">
+                        <img id="pokemon-art" alt="Pokemon">
                     </div>
                     <div class="pokemon-info">
                         <div class="nombre-contenedor">

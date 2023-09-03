@@ -8,8 +8,8 @@ async function init() {
         const favoritePokemons = await getFavoritePokemon();
 
 
-        if(favoritePokemons){
-            document.getElementById("listaPokemon").innerHTML = "";
+        if(favoritePokemons.favoritePokemons.length > 0){
+            document.getElementById("image-container").innerHTML = "";
         }
 
         // Create an array of promises for each fetch request

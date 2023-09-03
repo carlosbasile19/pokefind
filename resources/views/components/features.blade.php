@@ -61,10 +61,8 @@
                             </g>
                         </g>
                     </svg>
-                    <h4 class="relative mt-6 text-lg font-bold">Automated Tools</h4>
-                    <p class="relative mt-2 text-base text-center text-gray-600">Automate your workflow with these
-                        top of the
-                        line marketing tools.</p>
+                    <h4 class="relative mt-6 text-lg font-bold"> Random Pokemon</h4>
+                    <p class="relative mt-2 text-base text-center text-gray-600">Discover new Pokemon with the click of a button.</p>
                     <a href="#_" class="relative flex mt-2 text-sm font-medium text-indigo-500 underline">Learn
                         More</a>
                 </div>
@@ -124,10 +122,8 @@
                             </g>
                         </g>
                     </svg>
-                    <h4 class="relative mt-6 text-lg font-bold">Machine Learning</h4>
-                    <p class="relative mt-2 text-base text-center text-gray-600">Your Marketing tools will learn how
-                        to better
-                        convert and sell.</p>
+                    <h4 class="relative mt-6 text-lg font-bold">Catch Pokemon</h4>
+                    <p class="relative mt-2 text-base text-center text-gray-600">Easily keep track of your favorite Pokemon.</p>
                     <a href="#_" class="relative flex mt-2 text-sm font-medium text-indigo-500 underline">Learn
                         More</a>
                 </div>
@@ -187,10 +183,8 @@
                             </g>
                         </g>
                     </svg>
-                    <h4 class="relative mt-6 text-lg font-bold">Smart Notifications</h4>
-                    <p class="relative mt-2 text-base text-center text-gray-600">Our smart notifications will notify
-                        you when
-                        users convert.</p>
+                    <h4 class="relative mt-6 text-lg font-bold">Intuitive UI/UX</h4>
+                    <p class="relative mt-2 text-base text-center text-gray-600">Enjoy a user-friendly and responsive interface.</p>
                     <a href="#_" class="relative flex mt-2 text-sm font-medium text-indigo-500 underline">Learn
                         More</a>
                 </div>
