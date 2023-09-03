@@ -7,6 +7,23 @@ function getRandomInt(max) {
     return Math.floor(Math.random() * max);
   }
 
+  document.getElementById("favorite-button").addEventListener('click', async (event) => {
+
+    const button = event.currentTarget;
+    isAlreadyFavorite = await getSingleFavoritePokemon(button.getAttribute('data-pokemon-number'));
+
+    if (isAlreadyFavorite) {
+        console.log("isAlreadyFavorite");
+        button.firstElementChild.style.fill = "white";
+        
+    } else {
+        console.log("isNotAlreadyFavorite");
+        button.firstElementChild.style.fill = "red";
+        
+    }
+    addRemoveFavorites(button.getAttribute('data-pokemon-number'));
+    
+});
 
     async function init() {
         try {
@@ -88,26 +105,9 @@ function getRandomInt(max) {
                     favoriteButton.firstElementChild.style.fill = "white";
                 }
     
-                favoriteButton.addEventListener('click', async (event) => {
-
-                    const button = event.currentTarget;
-                    isAlreadyFavorite = await getSingleFavoritePokemon(button.getAttribute('data-pokemon-number'));
-
-                    if (isAlreadyFavorite) {
-                        console.log("isAlreadyFavorite");
-                        button.firstElementChild.style.fill = "white";
-                        
-                    } else {
-                        console.log("isNotAlreadyFavorite");
-                        button.firstElementChild.style.fill = "red";
-                        
-                    }
-                    addRemoveFavorites(button.getAttribute('data-pokemon-number'));
-                    
-                });
-                
     
         }
+        
     
         async function getSingleFavoritePokemon(pokemonNumber) {
             try {

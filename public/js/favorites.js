@@ -7,8 +7,11 @@ async function init() {
     try {
         const favoritePokemons = await getFavoritePokemon();
 
-        console.log(favoritePokemons.favoritePokemons);
-        
+
+        if(favoritePokemons){
+            document.getElementById("listaPokemon").innerHTML = "";
+        }
+
         // Create an array of promises for each fetch request
         const fetchPromises = [];
 
@@ -23,7 +26,7 @@ async function init() {
 
         });
 
-    
+        
         // Wait for all fetch requests to complete using Promise.all
         const pokemonDataArray = await Promise.all(fetchPromises);
 

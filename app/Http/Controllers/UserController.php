@@ -56,15 +56,10 @@ class UserController extends Controller
             // Handle the error or redirect as needed
             // For debugging, you can also return a response with the error message
         }
-        
 
-        if($userGithub == null){
-            return redirect('/register');
-        }
+        $user = User::where('email', $userGithub->email)->first();
 
-        $user = User::where('github_id', Hash::make($userGithub->id))->first();
-
-        if($user != null){
+        if($user){
             Auth::login($user);
             return redirect('/home');
         }
